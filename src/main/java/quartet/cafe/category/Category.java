@@ -1,34 +1,35 @@
-package quartet.cafe.domain;
+package quartet.cafe.category;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import quartet.cafe.domain.base.BaseEntity;
+import lombok.*;
+import quartet.cafe.common.BaseEntity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
-@Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(name = "category")
 public class Category extends BaseEntity {
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name= "category_id")
     private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-
     @JoinColumn(name = "parent_id")
     private Category parent;
+
     @OneToMany(mappedBy = "parent")
     private List<Category> child = new ArrayList<>();
 
-    public void addChildCategory(Category child) {
-        this.child.add(child);
-        child.setParent(this);
-    }
-
     @OneToMany(mappedBy = "category")
     private List<CategoryCafe> categoryCafes= new ArrayList<>();
+
+    @Builder
+    public Category(Category parent){
+        this.parent = parent;
+    }
 }

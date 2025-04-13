@@ -1,16 +1,18 @@
-package quartet.cafe.domain;
+package quartet.cafe.category;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import quartet.cafe.domain.base.BaseEntity;
+import lombok.*;
+import quartet.cafe.cafe.Cafe;
+import quartet.cafe.common.BaseEntity;
 
 @Entity
 @Getter
-@Setter
+@RequiredArgsConstructor(staticName = "of")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(name = "category_cafe")
 public class CategoryCafe extends BaseEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="category_cafe_id")
     private int id;
 
@@ -21,4 +23,5 @@ public class CategoryCafe extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "cafe_id")
     private Cafe cafe;
+
 }
