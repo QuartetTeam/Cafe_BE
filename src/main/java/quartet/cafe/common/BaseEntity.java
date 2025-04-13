@@ -1,4 +1,4 @@
-package quartet.cafe.domain.base;
+package quartet.cafe.common;
 
 import jakarta.persistence.*;
 import lombok.Getter;

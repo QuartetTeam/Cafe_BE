@@ -1,19 +1,21 @@
-package quartet.cafe.domain;
+package quartet.cafe.review;
 
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import quartet.cafe.domain.base.BaseEntity;
+import lombok.*;
+import quartet.cafe.cafe.Cafe;
+import quartet.cafe.common.BaseEntity;
+import quartet.cafe.user.User;
 
 import java.math.BigDecimal;
 
 @Entity
 @Getter
-@Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(name = "review")
 public class Review extends BaseEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="review_id")
     private int id;
 
@@ -31,5 +33,15 @@ public class Review extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="cafe_id")
     private Cafe cafe;
+
+    @Builder
+    public Review(BigDecimal score, String imageUrl, String content, User user, Cafe cafe) {
+        this.score = score;
+        this.imageUrl = imageUrl;
+        this.content = content;
+        this.user = user;
+        this.cafe = cafe;
+    }
+
 
 }
