@@ -7,7 +7,6 @@ import quartet.cafe.common.BaseEntity;
 
 @Entity
 @Getter
-@RequiredArgsConstructor(staticName = "of")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "category_cafe")
 public class CategoryCafe extends BaseEntity {
@@ -16,12 +15,18 @@ public class CategoryCafe extends BaseEntity {
     @Column(name ="category_cafe_id")
     private int id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cafe_id")
     private Cafe cafe;
 
+    public static CategoryCafe of(Category category, Cafe cafe) {
+        CategoryCafe categoryCafe = new CategoryCafe();
+        categoryCafe.category = category;
+        categoryCafe.cafe = cafe;
+        return categoryCafe;
+    }
 }
