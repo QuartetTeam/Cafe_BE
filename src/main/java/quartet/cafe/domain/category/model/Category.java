@@ -18,6 +18,8 @@ public class Category extends BaseEntity {
     @Column(name= "category_id")
     private int id;
 
+    private String name;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id")
     private Category parent;
@@ -28,8 +30,12 @@ public class Category extends BaseEntity {
     @OneToMany(mappedBy = "category")
     private List<CategoryCafe> categoryCafes= new ArrayList<>();
 
-    @Builder
-    public Category(Category parent){
+    public Category(String name, Category parent) {
+        this.name = name;
         this.parent = parent;
+    }
+
+    public static Category ofParent(String name, Category parent) {
+        return new Category(name, parent);
     }
 }
