@@ -1,10 +1,10 @@
-package quartet.cafe.option;
+package quartet.cafe.domain.option.model;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import quartet.cafe.cafe.Cafe;
+import quartet.cafe.domain.cafe.model.Cafe;
 import quartet.cafe.common.BaseEntity;
 
 @Entity

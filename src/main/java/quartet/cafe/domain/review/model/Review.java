@@ -1,11 +1,11 @@
-package quartet.cafe.review;
+package quartet.cafe.domain.review.model;
 
 
 import jakarta.persistence.*;
 import lombok.*;
-import quartet.cafe.cafe.Cafe;
+import quartet.cafe.domain.cafe.model.Cafe;
 import quartet.cafe.common.BaseEntity;
-import quartet.cafe.user.User;
+import quartet.cafe.domain.user.model.User;
 
 import java.math.BigDecimal;
 
