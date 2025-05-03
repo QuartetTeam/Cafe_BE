@@ -1,13 +1,13 @@
-package quartet.cafe.user;
+package quartet.cafe.domain.user.model;
 
 
 import jakarta.persistence.*;
 import lombok.*;
 import quartet.cafe.common.BaseEntity;
-import quartet.cafe.diary.Diary;
-import quartet.cafe.favorite.Favorite;
-import quartet.cafe.ownercontntreview.OwnerContentReview;
-import quartet.cafe.review.Review;
+import quartet.cafe.domain.diary.model.Diary;
+import quartet.cafe.domain.favorite.model.Favorite;
+import quartet.cafe.domain.ownercontntreview.model.OwnerContentReview;
+import quartet.cafe.domain.review.model.Review;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,10 +1,10 @@
-package quartet.cafe.ownercontntreview;
+package quartet.cafe.domain.ownercontntreview.model;
 
 import jakarta.persistence.*;
 import lombok.*;
 import quartet.cafe.common.BaseEntity;
-import quartet.cafe.user.User;
-import quartet.cafe.ownercontent.OwnerContent;
+import quartet.cafe.domain.user.model.User;
+import quartet.cafe.domain.ownercontent.model.OwnerContent;
 
 @Entity
 @Getter

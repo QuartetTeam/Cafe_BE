@@ -1,13 +1,13 @@
-package quartet.cafe.diary;
+package quartet.cafe.domain.diary.model;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import quartet.cafe.cafe.Cafe;
+import quartet.cafe.domain.cafe.model.Cafe;
 import quartet.cafe.common.BaseEntity;
-import quartet.cafe.user.User;
+import quartet.cafe.domain.user.model.User;
 
 @Entity
 @Getter

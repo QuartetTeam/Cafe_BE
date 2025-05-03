@@ -1,11 +1,11 @@
-package quartet.cafe.ownercontent;
+package quartet.cafe.domain.ownercontent.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import quartet.cafe.cafe.Cafe;
+import quartet.cafe.domain.cafe.model.Cafe;
 import quartet.cafe.common.BaseEntity;
-import quartet.cafe.ownercontntreview.OwnerContentReview;
-import quartet.cafe.owner.Owner;
+import quartet.cafe.domain.ownercontntreview.model.OwnerContentReview;
+import quartet.cafe.domain.owner.model.Owner;
 
 import java.util.ArrayList;
 import java.util.List;

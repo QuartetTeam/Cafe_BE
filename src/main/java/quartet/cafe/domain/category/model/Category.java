@@ -1,4 +1,4 @@
-package quartet.cafe.category;
+package quartet.cafe.domain.category.model;
 
 import jakarta.persistence.*;
 import lombok.*;

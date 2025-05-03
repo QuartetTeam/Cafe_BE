@@ -1,4 +1,4 @@
-package quartet.cafe.option;
+package quartet.cafe.domain.option.model;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -9,7 +9,7 @@ import quartet.cafe.common.BaseEntity;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "option")
+@Table(name = "`option`")
 public class Option extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
