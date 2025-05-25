@@ -25,7 +25,7 @@ public class Cafe extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name="cafe_id")
-    private int id;
+    private long id;
 
     private String name;
 

@@ -14,7 +14,7 @@ public class Favorite extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name="favorite_id")
-    private int id;
+    private long id;
 
     private boolean isFavorited;
 
@@ -32,4 +32,9 @@ public class Favorite extends BaseEntity {
         this.cafe = cafe;
         this.user = user;
     }
+
+    public void toggle() {
+        this.isFavorited = !this.isFavorited;
+    }
+
 }
