@@ -17,7 +17,7 @@ public class OwnerContentService {
 
     // 전체 조회
     public List<OwnerContentResponse> getAllOwnerContents() {
-        return ownerContentRepository.findAll().stream()
+return ownerContentRepository.findAllByOrderByCreatedAtDesc().stream()
                 .map(content -> OwnerContentResponse.builder()
                         .id(content.getId())
                         .introduction(content.getIntroduction())
