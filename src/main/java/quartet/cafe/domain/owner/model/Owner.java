@@ -17,7 +17,7 @@ public class Owner extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name="owner_id")
-    private int id;
+    private long id;
     private String name;
 
     private String email;

@@ -8,5 +8,4 @@ import lombok.NoArgsConstructor;
 public class FavoriteRequest {
     private Long userId;
     private Long cafeId;
-    private boolean isFavorited;
 }

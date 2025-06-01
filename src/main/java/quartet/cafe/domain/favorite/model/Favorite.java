@@ -16,8 +16,6 @@ public class Favorite extends BaseEntity {
     @Column (name="favorite_id")
     private long id;
 
-    private boolean isFavorited;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="cafe_id")
     private Cafe cafe;
@@ -27,14 +25,9 @@ public class Favorite extends BaseEntity {
     private User user;
 
     @Builder
-    public Favorite(boolean isFavorited, Cafe cafe, User user) {
-        this.isFavorited = isFavorited;
+    public Favorite(Cafe cafe, User user) {
         this.cafe = cafe;
         this.user = user;
-    }
-
-    public void toggle() {
-        this.isFavorited = !this.isFavorited;
     }
 
 }
