@@ -35,6 +35,12 @@ public class User extends BaseEntity {
 
     private String content;
 
+    @Column(name = "kakao_id", unique = true)
+    private String kakaoId;
+
+    @Enumerated(EnumType.STRING)
+    private SocialType socialType;  // 예: KAKAO, GOOGLE 등
+
     @OneToMany(mappedBy = "user")
     private List<Review> reviews=new ArrayList<>();
 
@@ -48,12 +54,16 @@ public class User extends BaseEntity {
     private List<Favorite> favorites=new ArrayList<>();
 
     @Builder
-    public User(String name, String password, String email, String phone, String profileUrl, String content) {
+    public User(String name, String password, String email, String phone, String profileUrl, String content,
+                String kakaoId, SocialType socialType) {
         this.name = name;
         this.password = password;
         this.email = email;
         this.phone = phone;
         this.profileUrl = profileUrl;
         this.content = content;
+        this.kakaoId = kakaoId;
+        this.socialType = socialType;
     }
+
 }
