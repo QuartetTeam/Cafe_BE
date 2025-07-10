@@ -7,6 +7,7 @@ import quartet.cafe.domain.category.model.CategoryCafe;
 import quartet.cafe.domain.diary.model.Diary;
 import quartet.cafe.common.BaseEntity;
 import quartet.cafe.domain.favorite.model.Favorite;
+import quartet.cafe.domain.option.model.OptionCafe;
 import quartet.cafe.domain.owner.model.Owner;
 import quartet.cafe.domain.ownercontent.model.OwnerContent;
 import quartet.cafe.domain.review.model.Review;
@@ -36,7 +37,7 @@ public class Cafe extends BaseEntity {
 
     private String postcode;
 
-    @Column(nullable = false, precision = 2, scale = 2) // 0.0 ~ 5.0 별점
+    @Column(nullable = false, precision = 2, scale = 1) // 0.0 ~ 5.0 별점
     private BigDecimal score;
 
     private LocalDateTime startAt;
@@ -61,6 +62,9 @@ public class Cafe extends BaseEntity {
 
     @OneToMany(mappedBy = "cafe")
     private List<CategoryCafe> categoryCafes= new ArrayList<>();
+
+    @OneToMany(mappedBy = "cafe")
+    private List<OptionCafe> optionCafes= new ArrayList<>();
 
     @Builder
     public Cafe(String name, String imageUrl, String introduction, String postcode, BigDecimal score,
