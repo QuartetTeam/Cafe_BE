@@ -30,7 +30,7 @@ public class JwtTokenProvider {
     }
 
     // 토큰 생성
-    public String createToken(int userId, SocialType socialType) {
+    public String createToken(long userId, SocialType socialType) {
         return Jwts.builder()
                 .claim("userId", userId)
                 .claim("social", socialType.name())

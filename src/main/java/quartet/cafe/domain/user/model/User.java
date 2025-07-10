@@ -23,6 +23,8 @@ public class User extends BaseEntity {
     @Column(name = "user_id")
     private long id;
 
+    private String kakaoId;
+
     private String name;
 
     private String password;
@@ -34,6 +36,9 @@ public class User extends BaseEntity {
     private String profileUrl;
 
     private String content;
+
+    @Enumerated(EnumType.STRING)
+    private SocialType socialType;
 
     @OneToMany(mappedBy = "user")
     private List<Review> reviews=new ArrayList<>();
@@ -48,13 +53,15 @@ public class User extends BaseEntity {
     private List<Favorite> favorites=new ArrayList<>();
 
     @Builder
-    public User(String name, String password, String email, String phone, String profileUrl, String content) {
+    public User(String name, String kakaoId, String password, String email, String phone, String profileUrl, String content, SocialType socialType) {
         this.name = name;
+        this.kakaoId = kakaoId;
         this.password = password;
         this.email = email;
         this.phone = phone;
         this.profileUrl = profileUrl;
         this.content = content;
+        this.socialType = socialType;
     }
 
     public long getId() {

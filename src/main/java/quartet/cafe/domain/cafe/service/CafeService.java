@@ -20,8 +20,6 @@ public class CafeService {
     public CafeDetailResponse getCafeDetail(Long cafeId) {
         // 카페 조회
 
-        Cafe cafe = cafeRepository.findById(cafeId)
-
         Cafe cafe = cafeRepository.findWithReviewsById(cafeId)
 
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 카페입니다."));

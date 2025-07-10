@@ -41,6 +41,7 @@ public class KakaoOauthService {
                             User.builder()
                                     .kakaoId(userInfo.getKakaoId())
                                     .email(userInfo.getEmail())
+                                    .password(null)
                                     .socialType(SocialType.KAKAO)
                                     .build()
                     );
