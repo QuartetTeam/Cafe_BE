@@ -37,7 +37,7 @@ public class Cafe extends BaseEntity {
 
     private String postcode;
 
-    @Column(nullable = false, precision = 2, scale = 2) // 0.0 ~ 5.0 별점
+    @Column(nullable = false, precision = 2, scale = 1) // 0.0 ~ 5.0 별점
     private BigDecimal score;
 
     private LocalDateTime startAt;

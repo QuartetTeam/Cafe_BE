@@ -17,7 +17,7 @@ public class Diary extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name="diary_id")
-    private int id;
+    private long id;
 
     private String imageUrl;
 
