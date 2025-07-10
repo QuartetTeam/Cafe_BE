@@ -18,7 +18,7 @@ public class OwnerContent extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name="owner_content_id")
-    private int id;
+    private long id;
 
     @Column(columnDefinition = "TEXT")
     private String introduction;

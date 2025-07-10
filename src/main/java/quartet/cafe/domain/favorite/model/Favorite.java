@@ -14,9 +14,7 @@ public class Favorite extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name="favorite_id")
-    private int id;
-
-    private boolean isFavorited;
+    private long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="cafe_id")
@@ -27,9 +25,9 @@ public class Favorite extends BaseEntity {
     private User user;
 
     @Builder
-    public Favorite(boolean isFavorited, Cafe cafe, User user) {
-        this.isFavorited = isFavorited;
+    public Favorite(Cafe cafe, User user) {
         this.cafe = cafe;
         this.user = user;
     }
+
 }

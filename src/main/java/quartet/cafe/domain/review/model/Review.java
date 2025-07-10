@@ -17,7 +17,7 @@ public class Review extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="review_id")
-    private int id;
+    private long id;
 
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal score;
@@ -43,5 +43,10 @@ public class Review extends BaseEntity {
         this.cafe = cafe;
     }
 
-
+    // 수정용 메서드
+    public void update(BigDecimal score, String imageUrl, String content) {
+        this.score = score;
+        this.imageUrl = imageUrl;
+        this.content = content;
+    }
 }

@@ -21,7 +21,7 @@ public class User extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    private int id;
+    private long id;
 
     private String name;
 
@@ -56,4 +56,9 @@ public class User extends BaseEntity {
         this.profileUrl = profileUrl;
         this.content = content;
     }
+
+    public long getId() {
+        return this.id;
+    }
+
 }
