@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import quartet.cafe.domain.cafe.model.Cafe;
 import quartet.cafe.common.BaseEntity;
-import quartet.cafe.domain.ownercontntreview.model.OwnerContentReview;
+import quartet.cafe.domain.ownercontentreview.model.OwnerContentReview;
 import quartet.cafe.domain.owner.model.Owner;
 
 import java.util.ArrayList;

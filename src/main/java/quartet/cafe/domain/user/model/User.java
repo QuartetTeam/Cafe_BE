@@ -6,7 +6,7 @@ import lombok.*;
 import quartet.cafe.common.BaseEntity;
 import quartet.cafe.domain.diary.model.Diary;
 import quartet.cafe.domain.favorite.model.Favorite;
-import quartet.cafe.domain.ownercontntreview.model.OwnerContentReview;
+import quartet.cafe.domain.ownercontentreview.model.OwnerContentReview;
 import quartet.cafe.domain.review.model.Review;
 
 import java.util.ArrayList;
