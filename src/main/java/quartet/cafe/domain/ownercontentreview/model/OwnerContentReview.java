@@ -1,4 +1,4 @@
-package quartet.cafe.domain.ownercontntreview.model;
+package quartet.cafe.domain.ownercontentreview.model;
 
 import jakarta.persistence.*;
 import lombok.*;

@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import quartet.cafe.domain.cafe.model.Cafe;
 import quartet.cafe.common.BaseEntity;
-import quartet.cafe.domain.ownercontntreview.model.OwnerContentReview;
+import quartet.cafe.domain.ownercontentreview.model.OwnerContentReview;
 import quartet.cafe.domain.owner.model.Owner;
 
 import java.util.ArrayList;
@@ -43,5 +43,19 @@ public class OwnerContent extends BaseEntity {
         this.owner = owner;
         this.cafe = cafe;
     }
+
+    @Column(name = "view_count", nullable = false)
+    private long viewCount = 0;
+
+    public long getViewCount() {
+        return this.viewCount;
+    }
+
+    public void increaseViewCount() {
+        this.viewCount += 1;
+    }
+
+
+
 }
 
