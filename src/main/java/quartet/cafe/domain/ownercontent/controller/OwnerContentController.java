@@ -34,9 +34,9 @@ public class OwnerContentController {
     @Operation(summary = "사장님 게시글 상세 조회", description = "게시글 ID로 특정 사장님 게시글을 조회합니다.")
     @GetMapping("/{id}")
     public OwnerContentResponse getOwnerContent(@PathVariable Long id) {
-        return ownerContentService.getOwnerContentById(id);
+        return ownerContentService.getOwnerContentDetail(id);
     }
-    
+
     // 게시글 등록
     @Operation(summary = "사장님 게시글 등록", description = "사장님이 카페 소개글을 작성해서 등록")
     @PostMapping

@@ -43,5 +43,19 @@ public class OwnerContent extends BaseEntity {
         this.owner = owner;
         this.cafe = cafe;
     }
+
+    @Column(name = "view_count", nullable = false)
+    private long viewCount = 0;
+
+    public long getViewCount() {
+        return this.viewCount;
+    }
+
+    public void increaseViewCount() {
+        this.viewCount += 1;
+    }
+
+
+
 }
 

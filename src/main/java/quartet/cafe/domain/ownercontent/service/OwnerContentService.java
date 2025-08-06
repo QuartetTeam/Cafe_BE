@@ -7,10 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import quartet.cafe.domain.cafe.model.Cafe;
 import quartet.cafe.domain.cafe.repository.CafeRepository;
+import quartet.cafe.domain.comment.repository.CommentRepository;
 import quartet.cafe.domain.owner.model.Owner;
 import quartet.cafe.domain.owner.repository.OwnerRepository;
 import quartet.cafe.domain.ownercontent.dto.OwnerContentRequest;
 import quartet.cafe.domain.ownercontent.dto.OwnerContentResponse;
+import quartet.cafe.domain.ownercontent.like.repository.OwnerContentLikeRepository;
 import quartet.cafe.domain.ownercontent.model.OwnerContent;
 import quartet.cafe.domain.ownercontent.repository.OwnerContentRepository;
 
@@ -24,6 +26,8 @@ public class OwnerContentService {
     private final OwnerContentRepository ownerContentRepository;
     private final OwnerRepository ownerRepository;      // 사장님 게시글 등록용
     private final CafeRepository cafeRepository;        // 사장님 게시글 등록용
+    private final OwnerContentLikeRepository likeRepository;
+    private final CommentRepository commentRepository;
 
     // 특정 카페의 게시글 목록 조회 (최신순으로 6개씩 페이지네이션)
     public List<OwnerContentResponse> getOwnerContentsByCafeId(Long cafeId, Pageable pageable) {
@@ -77,4 +81,21 @@ public class OwnerContentService {
                 .cafeId(saved.getCafe().getId())
                 .build();
     }
+
+    public OwnerContentResponse getOwnerContentDetail(Long contentId) {
+        // 1. 게시글 조회
+        OwnerContent content = ownerContentRepository.findById(contentId)
+                .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 존재하지 않습니다."));
+
+        // 2. 좋아요 수 조회
+        long likeCount = likeRepository.countByOwnerContentId(contentId);
+
+        // 3. 댓글 수 조회
+        long commentCount = commentRepository.countByOwnerContentId(contentId);
+
+        // 4. 응답 DTO 생성 (viewCount는 엔티티 필드에서 가져옴)
+        return OwnerContentResponse.from(content, likeCount, commentCount);
+    }
+
+
 }
